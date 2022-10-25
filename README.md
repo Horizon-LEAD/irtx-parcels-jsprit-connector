@@ -33,7 +33,10 @@ repository as `environment.yml`.
 #### Input
 
 To run the model, a synthetic parcel data set must be present in GeoPackage
-format, for instance at `/path/to/parcels.gpkg`.
+format, for instance at `/path/to/parcels.gpkg`. Furthermore, a perimeter needs
+to be defined in which parcels will be processed. For the Lyon living lab, a
+file describing the perimeter of the Confluence study area is provided in
+`/data_lyon/perimeter.gpkg`.
 
 #### Output
 
@@ -54,6 +57,7 @@ one can call `convert_parcels.py` as follows:
 ```bash
 python3 convert_parcels.py \
   --parcels-path /path/to/parcels.gpkg \
+  --perimeter-path /path/to/data_lyon/perimeter.gpkg \
   --output-path /path/to/operator.json \
   --operator-id my_operator \
   --center-latitude 45.7424 \
@@ -69,6 +73,7 @@ The **mandatory** parameters are detailed in the following table:
 Parameter             | Values                            | Description
 ---                   | ---                               | ---
 `--parcels-path`          | String                            | Path to the input file containing the synthetic parcels
+`--perimeter-path`          | String                            | GeoPackage file describing the perimeter of the study area
 `--output-path`         | String                            | Path to the output file that will contain the operator information
 `--operator-id`         | String                            | Identifier of the operator in the downstream JSprit model
 `--center-latitude`     | Real                            | Latitude of the distribution center
@@ -79,7 +84,7 @@ The following **optional** parameters exist that can be configured. See the JSpr
 
 Parameter             | Values                            | Description
 ---                   | ---                               | ---
-`--shipment-type`         | `delivery`* or `pickup`             | Shipment from the distribution center
+`--shipment-type`         | `delivery`* or `pickup` or `none`             | Shipment from the distribution center
 `--consolidation-type`             | `none`* or `delivery` or `pickup`              | Shipment type from the consolidation center (if used)
 
 The (*) indicate the default values.
@@ -95,13 +100,14 @@ office is defined as the distribution center.
 ```bash
 python3 convert_parcels.py \
   --parcels-path /path/to/lead_2022_parcels.gpkg \
+  --perimeter-path /path/to/data_lyon/perimeter.gpkg \
   --output-path /path/to/laposte_2022.json \
   --operator-id laposte \
-  --center-latitude 45.74243052132232 \
-  --center-longitude 4.829177856445313 \
+  --center-latitude 45.74263642703923 \
+  --center-longitude 4.819784759902544 \
   --vehicle-type van \
   --shipment-type delivery \
-  --consolidation-type none \
+  --consolidation-type none
 ```
 
 **Baseline operator data 2030**
@@ -109,11 +115,12 @@ python3 convert_parcels.py \
 ```bash
 python3 convert_parcels.py \
   --parcels-path /path/to/lead_2030_parcels.gpkg \
+  --perimeter-path /path/to/data_lyon/perimeter.gpkg \
   --output-path /path/to/laposte_2030.json \
   --operator-id laposte \
-  --center-latitude 45.74243052132232 \
-  --center-longitude 4.829177856445313 \
+  --center-latitude 45.74263642703923 \
+  --center-longitude 4.819784759902544 \
   --vehicle-type van \
   --shipment-type delivery \
-  --consolidation-type none \
+  --consolidation-type none
 ```

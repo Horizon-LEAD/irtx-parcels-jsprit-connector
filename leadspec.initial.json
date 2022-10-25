@@ -25,6 +25,21 @@
             }
         },
         {
+            "name": "Perimeter path",
+            "variableName": "perimeter-path",
+            "description": "GeoPackage file describing the perimeter of the study area",
+            "isOutput": false,
+            "isOutputDir": false,
+            "isOptional": false,
+            "inputType": "CLI",
+            "chartType": "NONE",
+            "modelDataType": {
+                "name": "file",
+                "dataType": "file",
+                "extension": "gpkg"
+            }
+        },
+        {
             "name": "Output path",
             "variableName": "output-path",
             "description": "Path to the output file that will contain the operator information",
@@ -109,7 +124,7 @@
             "modelDataType": {
                 "name": "string",
                 "dataType": "string",
-                "allowed values": ["delivery", "pickup"]
+                "allowed values": ["delivery", "pickup", "none"]
             }
         },
         {

@@ -7,6 +7,7 @@ import geopandas as gpd
 parser = argparse.ArgumentParser(description = "LEAD Parcel converter for JSprit")
 
 parser.add_argument("--parcels-path", type = str, required = True)
+parser.add_argument("--perimeter-path", type = str, required = True)
 parser.add_argument("--output-path", type = str, required = True)
 parser.add_argument("--operator-id", type = str, required = True)
 parser.add_argument("--center-latitude", type = float, required = True)
@@ -19,7 +20,13 @@ arguments = parser.parse_args()
 
 ### Create operator
 
+df_perimeter = gpd.read_file(arguments.perimeter_path)
 df_parcels = gpd.read_file(arguments.parcels_path)
+
+df_parcels = df_parcels.to_crs(df_perimeter.crs)
+df_parcels = gpd.sjoin(df_parcels, df_perimeter, op = "within")
+
+# Convert to WGS84
 df_parcels = df_parcels.to_crs("EPSG:4326")
 
 demand = [
