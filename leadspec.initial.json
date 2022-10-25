@@ -1,0 +1,131 @@
+{
+    "name": "IRTX Synthetic parcels to JSprit connector",
+    "description":"The models converts a generated synthetic parcel data set into the input format for the JSprit model",
+    "version": "1.0.0",
+    "status":"draft",
+    "types": [
+        {"name": "Connector", "description":"???"}
+    ],
+    "dockerImage":"???",
+    "url": "https://github.com/Horizon-LEAD/irtx-parcels-jsprit-connector",
+    "modelData":  [
+        {
+            "name": "Parcels path",
+            "variableName": "parcels-path",
+            "description": "Path to the input file containing the synthetic parcels",
+            "isOutput": false,
+            "isOutputDir": false,
+            "isOptional": false,
+            "inputType": "CLI",
+            "chartType": "NONE",
+            "modelDataType": {
+                "name": "file",
+                "dataType": "file",
+                "extension": "gpkg"
+            }
+        },
+        {
+            "name": "Output path",
+            "variableName": "output-path",
+            "description": "Path to the output file that will contain the operator information",
+            "isOutput": true,
+            "isOutputDir": false,
+            "isOptional": false,
+            "inputType": "CLI",
+            "chartType": "NONE",
+            "modelDataType": {
+                "name": "file",
+                "dataType": "file",
+                "extension": "json"
+            }
+        },
+        {
+            "name": "Operator ID",
+            "variableName": "operator-id",
+            "description": "Identifier of the operator in the downstream JSprit model",
+            "isOutput": false,
+            "isOutputDir": false,
+            "isOptional": false,
+            "inputType": "CLI",
+            "chartType": "NONE",
+            "modelDataType": {
+                "name": "str",
+                "dataType": "str"
+            }
+        },
+        {
+            "name": "Center Latitude",
+            "variableName": "center-latitude",
+            "description": "Latitude of the distribution center",
+            "isOutput": false,
+            "isOutputDir": false,
+            "isOptional": false,
+            "inputType": "CLI",
+            "chartType": "NONE",
+            "modelDataType": {
+                "name": "float",
+                "dataType": "float"
+            }
+        },
+        {
+            "name": "Center Longitude",
+            "variableName": "center-longitude",
+            "description": "Longitude of the distribution center",
+            "isOutput": false,
+            "isOutputDir": false,
+            "isOptional": false,
+            "inputType": "CLI",
+            "chartType": "NONE",
+            "modelDataType": {
+                "name": "float",
+                "dataType": "float"
+            }
+        },
+        {
+            "name": "Add vehicle type",
+            "variableName": "vehicle-type",
+            "description": "Vehicle types that should be available in the center",
+            "isOutput": false,
+            "isOutputDir": false,
+            "isOptional": false,
+            "inputType": "CLI",
+            "chartType": "NONE",
+            "modelDataType": {
+                "name": "string",
+                "dataType": "string",
+                "comment": "Technically, this parameter can be added multiple times to add multiple vehicle types",
+                "comment2": "But it must be called at least once"
+            }
+        },
+        {
+            "name": "Shipment type",
+            "variableName": "shipment-type",
+            "description": "Shipment type from the distribution center",
+            "isOutput": false,
+            "isOutputDir": false,
+            "isOptional": true,
+            "inputType": "CLI",
+            "chartType": "NONE",
+            "modelDataType": {
+                "name": "string",
+                "dataType": "string",
+                "allowed values": ["delivery", "pickup"]
+            }
+        },
+        {
+            "name": "Consolidation type",
+            "variableName": "consolidation-type",
+            "description": "Shipment type from the consolidation center (if used)",
+            "isOutput": false,
+            "isOutputDir": false,
+            "isOptional": true,
+            "inputType": "CLI",
+            "chartType": "NONE",
+            "modelDataType": {
+                "name": "string",
+                "dataType": "string",
+                "allowed values": ["delivery", "pickup", "none"]
+            }
+        }
+    ]
+}
