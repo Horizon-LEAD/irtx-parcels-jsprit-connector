@@ -5,8 +5,6 @@
 - Provide static input to INLECOM (so no need to run upstream models for testing)
 - Generate the standard cases for downstream testing
 
-- Test that all of this works smoothly with the provided data
-
 ## Introduction
 
 This model is a connector between the upstream synthetic parcel generation
