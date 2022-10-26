@@ -15,6 +15,7 @@ parser.add_argument("--center-longitude", type = float, required = True)
 parser.add_argument("--vehicle-type", type = str, action="append", required = True)
 parser.add_argument("--shipment-type", type = str, required = False, default = "delivery")
 parser.add_argument("--consolidation-type", type = str, required = False, default = "none")
+parser.add_argument("--driver-salary", type = float, required = True, default = "none")
 
 arguments = parser.parse_args()
 
@@ -43,6 +44,7 @@ operator = {
     "vehicle_types": arguments.vehicle_type,
     "shipment_type": arguments.shipment_type,
     "consolidation_type": arguments.consolidation_type,
+    "daily_driver_salary_EUR": arguments.driver_salary,
     "demand": demand
 }
 

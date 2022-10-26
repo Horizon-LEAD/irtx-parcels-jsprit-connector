@@ -77,6 +77,7 @@ Parameter             | Values                            | Description
 `--center-latitude`     | Real                            | Latitude of the distribution center
 `--center-longitude`     | Real                            | Longitude of the distribution center
 `--vehicle-type`     | String                            | Assigns a vehicle type to the operator. *Must be called at least once, but can be called multiple times to add multiple available vehicle types*
+`--driver-salary`             | Real              | Salary considered per day per driver in EUR
 
 The following **optional** parameters exist that can be configured. See the JSprit model for a detailed description of their meaning in the delivery process of the operator:
 
@@ -105,7 +106,8 @@ python3 convert_parcels.py \
   --center-longitude 4.819784759902544 \
   --vehicle-type van \
   --shipment-type delivery \
-  --consolidation-type none
+  --consolidation-type none \
+  --driver-salary 136.0
 ```
 
 **Baseline operator data 2030**
@@ -120,5 +122,6 @@ python3 convert_parcels.py \
   --center-longitude 4.819784759902544 \
   --vehicle-type van \
   --shipment-type delivery \
-  --consolidation-type none
+  --consolidation-type none \
+  --driver-salary 136.0
 ```
