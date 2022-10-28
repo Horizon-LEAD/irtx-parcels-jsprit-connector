@@ -1,10 +1,5 @@
 # IRTX Synthetic parcels to JSprit connector
 
-## TODO
-
-- Provide static input to INLECOM (so no need to run upstream models for testing)
-- Generate the standard cases for downstream testing
-
 ## Introduction
 
 This model is a connector between the upstream synthetic parcel generation
