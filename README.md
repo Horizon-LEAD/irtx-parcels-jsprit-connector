@@ -58,7 +58,7 @@ python3 convert_parcels.py \
   --vehicle-type van \
   --vehicle-type cargo_bike \
   --shipment-type delivery \
-  --consolidation-type none \
+  --consolidation-type none
 ```
 
 The **mandatory** parameters are detailed in the following table:
