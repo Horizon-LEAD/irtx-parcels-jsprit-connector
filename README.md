@@ -26,10 +26,10 @@ repository as `environment.yml`.
 #### Input
 
 To run the model, a synthetic parcel data set must be present in GeoPackage
-format, for instance at `/path/to/parcels.gpkg`. Furthermore, a perimeter needs
+format, for instance at `/irtx-parcels/output/parcels.gpkg`. Furthermore, a perimeter needs
 to be defined in which parcels will be processed. For the Lyon living lab, a
 file describing the perimeter of the Confluence study area is provided in
-`/data_lyon/perimeter.gpkg`.
+`data/perimeter_lyon.gpkg`.
 
 #### Output
 
@@ -40,18 +40,18 @@ parcels. The format of the operator file is described in detail in the
 documentation of the downstream JSprit optimization model.
 
 The location of the resulting JSON file can be configured (see below), for
-instance as `/path/to/operator.json`.
+instance as `/irtx-parcels-jsprit-connector/output/operator.json`.
 
-# Running the model
+## Running the model
 
 To run the model, the `conda` environment needs to be prepared and entered. After,
 one can call `convert_parcels.py` as follows:
 
 ```bash
 python3 convert_parcels.py \
-  --parcels-path /path/to/parcels.gpkg \
-  --perimeter-path /path/to/data_lyon/perimeter.gpkg \
-  --output-path /path/to/operator.json \
+  --parcels-path /irtx-parcels/output/parcels.gpkg \
+  --perimeter-path /irtx-parcels-jsprit-connector/data/perimeter_lyon.gpkg \
+  --output-path /irtx-parcels-jsprit-connector/output/operator.json \
   --operator-id my_operator \
   --center-latitude 45.7424 \
   --center-longitude 4.8291 \
@@ -93,9 +93,9 @@ office is defined as the distribution center.
 
 ```bash
 python3 convert_parcels.py \
-  --parcels-path /path/to/lead_2022_parcels.gpkg \
-  --perimeter-path /path/to/data_lyon/perimeter.gpkg \
-  --output-path /path/to/laposte_2022.json \
+  --parcels-path /irtx-parcels/output/lead_2022_parcels.gpkg \
+  --perimeter-path data/perimeter_lyon.gpkg \
+  --output-path /irtx-parcels-jsprit-connector/output/laposte_2022.json \
   --operator-id laposte \
   --center-latitude 45.74263642703923 \
   --center-longitude 4.819784759902544 \
@@ -109,9 +109,9 @@ python3 convert_parcels.py \
 
 ```bash
 python3 convert_parcels.py \
-  --parcels-path /path/to/lead_2030_parcels.gpkg \
-  --perimeter-path /path/to/data_lyon/perimeter.gpkg \
-  --output-path /path/to/laposte_2030.json \
+  --parcels-path /irtx-parcels/output/lead_2030_parcels.gpkg \
+  --perimeter-path data/perimete_lyon.gpkg \
+  --output-path /irtx-parcels-jsprit-connector/output/laposte_2030.json \
   --operator-id laposte \
   --center-latitude 45.74263642703923 \
   --center-longitude 4.819784759902544 \
