@@ -1,5 +1,12 @@
 set -e
 
+## Prepare
+cd /home/ubuntu/irtx-parcels-jsprit-connector
+mkdir /home/ubuntu/irtx-parcels-jsprit-connector/output
+
+## Create environment
+conda env create -f environment.yml -n parcels2jsprit
+
 ## Activate environment
 conda activate parcels2jsprit
 
