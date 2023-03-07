@@ -120,3 +120,22 @@ python3 convert_parcels.py \
   --consolidation-type none \
   --driver-salary 136.0
 ```
+
+## Installation
+
+```
+docker build -t parcels-irtx-2-jsprit:latest .
+```
+
+## Usage
+
+### Examples
+
+```
+docker run --rm \
+  -v ./sample-data:/data \
+  parcels-irtx-2-jsprit:latest \
+  /data/input/parcels.gpkg \
+  /data/input/perimeter_lyon.gpkg \
+  /data/output
+```
