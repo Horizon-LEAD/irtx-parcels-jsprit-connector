@@ -1,9 +1,10 @@
 import json
 import argparse
-import os
+from os.path import join
+
 import geopandas as gpd
 
-### Command line
+# Command line
 parser = argparse.ArgumentParser(description = "LEAD Parcel converter for JSprit")
 
 parser.add_argument("--parcels-path", type = str, required = True)
@@ -19,8 +20,7 @@ parser.add_argument("--driver-salary", type = float, required = True, default = 
 
 arguments = parser.parse_args()
 
-### Create operator
-
+# Create operator
 df_perimeter = gpd.read_file(arguments.perimeter_path)
 df_parcels = gpd.read_file(arguments.parcels_path)
 
@@ -48,7 +48,6 @@ operator = {
     "demand": demand
 }
 
-### Output
-
-with open(arguments.output_path, "w+") as f:
-    json.dump(operator, f, indent = 4)
+# Output
+with open(join(arguments.output_path, "output.json"), "w+", encoding='utf8') as fjson:
+    json.dump(operator, fjson, indent = 4)
