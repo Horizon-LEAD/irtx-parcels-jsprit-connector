@@ -3,9 +3,6 @@
     "description":"The models converts a generated synthetic parcel data set into the input format for the JSprit model",
     "version": "1.0.0",
     "status":"draft",
-    "types": [
-        {"name": "Connector", "description":"???"}
-    ],
     "dockerImage":"???",
     "url": "https://github.com/Horizon-LEAD/irtx-parcels-jsprit-connector",
     "modelData":  [
@@ -49,9 +46,8 @@
             "inputType": "CLI",
             "chartType": "NONE",
             "modelDataType": {
-                "name": "file",
-                "dataType": "file",
-                "extension": "json"
+                "name": "string",
+                "dataType": "string"
             }
         },
         {
@@ -64,8 +60,8 @@
             "inputType": "CLI",
             "chartType": "NONE",
             "modelDataType": {
-                "name": "str",
-                "dataType": "str"
+                "name": "string",
+                "dataType": "string"
             }
         },
         {
@@ -78,8 +74,8 @@
             "inputType": "CLI",
             "chartType": "NONE",
             "modelDataType": {
-                "name": "float",
-                "dataType": "float"
+                "name": "number",
+                "dataType": "number"
             }
         },
         {
@@ -92,8 +88,8 @@
             "inputType": "CLI",
             "chartType": "NONE",
             "modelDataType": {
-                "name": "float",
-                "dataType": "float"
+                "name": "number",
+                "dataType": "number"
             }
         },
         {
@@ -140,6 +136,21 @@
                 "name": "string",
                 "dataType": "string",
                 "allowed values": ["delivery", "pickup", "none"]
+            }
+        },
+        {
+            "name": "Output JSON",
+            "variableName": "output",
+            "description": "Shipment type from the consolidation center (if used)",
+            "isOutput": false,
+            "isOutputDir": false,
+            "isOptional": true,
+            "inputType": "CLI",
+            "chartType": "NONE",
+            "modelDataType": {
+                "name": "file",
+                "dataType": "file",
+                "extension": "json"
             }
         }
     ]
