@@ -3,7 +3,7 @@
     "description":"The models converts a generated synthetic parcel data set into the input format for the JSprit model",
     "version": "1.0.0",
     "status":"draft",
-    "dockerImage":"???",
+    "dockerImage":"registry.gitlab.com/inlecom/lead/models/parcels-irtx-2-jsprit",
     "url": "https://github.com/Horizon-LEAD/irtx-parcels-jsprit-connector",
     "modelData":  [
         {
@@ -39,7 +39,7 @@
         {
             "name": "Output path",
             "variableName": "output-path",
-            "description": "Path to the output file that will contain the operator information",
+            "description": "Path to the output directory that will contain the operator information",
             "isOutput": true,
             "isOutputDir": false,
             "isOptional": false,
@@ -52,12 +52,12 @@
         },
         {
             "name": "Operator ID",
-            "variableName": "operator-id",
+            "variableName": "OPERATOR_ID",
             "description": "Identifier of the operator in the downstream JSprit model",
             "isOutput": false,
             "isOutputDir": false,
             "isOptional": false,
-            "inputType": "CLI",
+            "inputType": "ENV",
             "chartType": "NONE",
             "modelDataType": {
                 "name": "string",
@@ -66,12 +66,12 @@
         },
         {
             "name": "Center Latitude",
-            "variableName": "center-latitude",
+            "variableName": "CENTER_LATITUDE",
             "description": "Latitude of the distribution center",
             "isOutput": false,
             "isOutputDir": false,
             "isOptional": false,
-            "inputType": "CLI",
+            "inputType": "ENV",
             "chartType": "NONE",
             "modelDataType": {
                 "name": "number",
@@ -80,12 +80,12 @@
         },
         {
             "name": "Center Longitude",
-            "variableName": "center-longitude",
+            "variableName": "CENTER_LONGITUDE",
             "description": "Longitude of the distribution center",
             "isOutput": false,
             "isOutputDir": false,
             "isOptional": false,
-            "inputType": "CLI",
+            "inputType": "ENV",
             "chartType": "NONE",
             "modelDataType": {
                 "name": "number",
@@ -94,24 +94,36 @@
         },
         {
             "name": "Add vehicle type",
-            "variableName": "vehicle-type",
+            "variableName": "VEHICLE_TYPE",
             "description": "Vehicle types that should be available in the center",
             "isOutput": false,
             "isOutputDir": false,
             "isOptional": false,
-            "inputType": "CLI",
+            "inputType": "ENV",
             "chartType": "NONE",
             "modelDataType": {
                 "name": "string",
-                "dataType": "string",
-                "comment": "Technically, this parameter can be added multiple times to add multiple vehicle types",
-                "comment2": "But it must be called at least once"
+                "dataType": "string"
             }
         },
         {
             "name": "Shipment type",
-            "variableName": "shipment-type",
+            "variableName": "SHIPMENT_TYPE",
             "description": "Shipment type from the distribution center",
+            "isOutput": false,
+            "isOutputDir": false,
+            "isOptional": true,
+            "inputType": "ENV",
+            "chartType": "NONE",
+            "modelDataType": {
+                "name": "string",
+                "dataType": "string"
+            }
+        },
+        {
+            "name": "Consolidation type",
+            "variableName": "CONSOLIDATION_TYPE",
+            "description": "Shipment type from the consolidation center (if used)",
             "isOutput": false,
             "isOutputDir": false,
             "isOptional": true,
@@ -125,7 +137,7 @@
         },
         {
             "name": "Consolidation type",
-            "variableName": "consolidation-type",
+            "variableName": "CONSOLIDATION_TYPE",
             "description": "Shipment type from the consolidation center (if used)",
             "isOutput": false,
             "isOutputDir": false,
@@ -134,8 +146,21 @@
             "chartType": "NONE",
             "modelDataType": {
                 "name": "string",
-                "dataType": "string",
-                "allowed values": ["delivery", "pickup", "none"]
+                "dataType": "string"
+            }
+        },
+        {
+            "name": "Driver Salary",
+            "variableName": "DRIVER_SALARY",
+            "description": "Driver Salary",
+            "isOutput": false,
+            "isOutputDir": false,
+            "isOptional": true,
+            "inputType": "CLI",
+            "chartType": "NONE",
+            "modelDataType": {
+                "name": "number",
+                "dataType": "number"
             }
         },
         {

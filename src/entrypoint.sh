@@ -65,10 +65,10 @@ output_path=${leftovers[2]%/}
 [ $verbose -eq 1 ] && echo -e "output-path: ${output_path}"
 
 if [ ! -f "${fparcels}" ]; then
-     echo -e "Give a ${BOLD}valid${NORM} output parcels file path\n"; show_usage; kill -INT $$
+     echo -e "Give a ${BOLD}valid${NORM} parcels file path\n"; show_usage; kill -INT $$
 fi
 if [ ! -f "${fperimeter}" ]; then
-     echo -e "Give a ${BOLD}valid${NORM} output perimeter file path\n"; show_usage; kill -INT $$
+     echo -e "Give a ${BOLD}valid${NORM} perimeter file path\n"; show_usage; kill -INT $$
 fi
 
 if [ ! -d "${output_path}" ]; then
@@ -82,12 +82,12 @@ python /srv/app/src/convert_parcels.py \
   	--parcels-path ${fparcels} \
   	--perimeter-path ${fperimeter} \
   	--output-path ${output_path} \
-  	--operator-id laposte \
-  	--center-latitude 45.74263642703923 \
-  	--center-longitude 4.819784759902544 \
-  	--vehicle-type van \
-  	--shipment-type delivery \
-  	--consolidation-type none \
-  	--driver-salary 136.0
+  	--operator-id ${OPERATOR_ID:-laposte} \
+  	--center-latitude ${CENTER_LATITUDE:-45.74263642703923} \
+  	--center-longitude ${CENTER_LATITUDE:-4.819784759902544} \
+  	--vehicle-type ${VEHICLE_TYPE} \
+  	--shipment-type ${SHIPMENT_TYPE:-delivery} \
+  	--consolidation-type ${CONSOLIDATION_TYPE:-none} \
+  	--driver-salary ${DRIVER_SALARY:-136.0}
 
 [ $verbose -eq 1 ] && echo -e "output:\n$(ls -ld -1 ${output_path}/*)"
