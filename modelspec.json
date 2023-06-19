@@ -40,8 +40,8 @@
             "name": "Output path",
             "variableName": "output-path",
             "description": "Path to the output directory that will contain the operator information",
-            "isOutput": true,
-            "isOutputDir": false,
+            "isOutput": false,
+            "isOutputDir": true,
             "isOptional": false,
             "inputType": "CLI",
             "chartType": "NONE",
@@ -131,21 +131,6 @@
             "chartType": "NONE",
             "modelDataType": {
                 "name": "string",
-                "dataType": "string",
-                "allowed values": ["delivery", "pickup", "none"]
-            }
-        },
-        {
-            "name": "Consolidation type",
-            "variableName": "CONSOLIDATION_TYPE",
-            "description": "Shipment type from the consolidation center (if used)",
-            "isOutput": false,
-            "isOutputDir": false,
-            "isOptional": true,
-            "inputType": "CLI",
-            "chartType": "NONE",
-            "modelDataType": {
-                "name": "string",
                 "dataType": "string"
             }
         },
@@ -167,9 +152,9 @@
             "name": "Output JSON",
             "variableName": "output",
             "description": "Shipment type from the consolidation center (if used)",
-            "isOutput": false,
+            "isOutput": true,
             "isOutputDir": false,
-            "isOptional": true,
+            "isOptional": false,
             "inputType": "CLI",
             "chartType": "NONE",
             "modelDataType": {
